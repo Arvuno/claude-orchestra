@@ -8,7 +8,8 @@
 #   • appends the orchestra rule to your CLAUDE.md (only if not already present)
 #
 # Idempotent: safe to run more than once. Backs up settings.json before changing it.
-# No sudo required. Nothing is deleted or overwritten without a backup.
+# No sudo required. Re-running refreshes the two managed skills + hook; your own
+# rules/orchestra-system.md and the rest of your config are preserved.
 
 set -euo pipefail
 
@@ -31,8 +32,13 @@ fi
 mkdir -p "$CLAUDE_DIR/skills" "$CLAUDE_DIR/hooks" "$CLAUDE_DIR/rules"
 
 # --- 1. skills ----------------------------------------------------------------
-cp -R "$REPO_DIR/skills/orchestra-router" "$CLAUDE_DIR/skills/orchestra-router"
-cp -R "$REPO_DIR/skills/orchestra-intake" "$CLAUDE_DIR/skills/orchestra-intake"
+# Clean replace: on macOS/BSD `cp -R src dest` NESTS into an existing dest dir
+# (creating skills/orchestra-router/orchestra-router) instead of overwriting.
+# Removing dest first guarantees a deterministic refresh on every platform.
+for s in orchestra-router orchestra-intake; do
+  rm -rf "$CLAUDE_DIR/skills/$s"
+  cp -R "$REPO_DIR/skills/$s" "$CLAUDE_DIR/skills/$s"
+done
 say "✓ skills → $CLAUDE_DIR/skills/{orchestra-router,orchestra-intake}"
 
 # --- 2. hook ------------------------------------------------------------------
@@ -55,9 +61,11 @@ if [ ! -f "$SETTINGS" ]; then
 fi
 cp "$SETTINGS" "$SETTINGS.bak.$(date +%Y%m%d-%H%M%S)"
 
-# Add the UserPromptSubmit hook entry only if our command isn't already registered.
-already="$(jq --arg c "$HOOK_CMD" '
-  [.hooks.UserPromptSubmit // [] | .[]? | .hooks[]? | select(.command == $c)] | length
+# Add the UserPromptSubmit hook entry only if orchestra routing isn't already wired —
+# match ANY command that references "orchestra-route" (any path/filename), so we don't
+# double-inject for users who already route via a differently-named hook.
+already="$(jq '
+  [.hooks.UserPromptSubmit // [] | .[]? | .hooks[]? | select((.command // "") | test("orchestra-route"))] | length
 ' "$SETTINGS")"
 
 if [ "$already" -gt 0 ]; then
@@ -74,7 +82,9 @@ fi
 
 # --- 5. append the orchestra rule to CLAUDE.md (idempotent) -------------------
 CLAUDE_MD="$CLAUDE_DIR/CLAUDE.md"
-MARKER="## Orchestra System (NON-NEGOTIABLE)"
+# Match the rule by its text, not a specific heading level — so an existing
+# "### Rule 13 — Orchestra System (NON-NEGOTIABLE)" also counts as already-present.
+MARKER="Orchestra System (NON-NEGOTIABLE)"
 touch "$CLAUDE_MD"
 if grep -qF "$MARKER" "$CLAUDE_MD"; then
   say "• orchestra rule already in CLAUDE.md — skipped"
