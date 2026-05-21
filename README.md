@@ -38,22 +38,6 @@ sequences its players, clear **triggers**, and quality **gates**. A routing hook
 request and activates the right orchestra automatically — and announces it, so you always know
 what's playing.
 
-```mermaid
-flowchart TD
-    U([Your request]) --> H[Routing hook<br/>fires every prompt]
-    N[["✦ NEXUS<br/>meta-conductor"]] -. sequences .-> R
-    H --> R{orchestra-router<br/>matches intent}
-    R --> B["🔨 BUILD<br/>· architect"]
-    R --> D["🎨 DESIGN<br/>· ux-architect"]
-    R --> RS["🔬 RESEARCH<br/>· research-agent"]
-    R --> MK["📣 MARKETING<br/>· strategist"]
-    R --> X["…more orchestras"]
-    B --> OUT["🎼 BUILD active · Conductor: architect · Using: ..."]
-    style N fill:#f5b301,stroke:#222,color:#222
-    style R fill:#2d2d2d,stroke:#f5b301,color:#fff
-    style OUT fill:#1b9e4b,stroke:#222,color:#fff
-```
-
 ## Quick start
 
 **The easy way** — paste this into Claude Code:
@@ -92,6 +76,8 @@ If you're a Claude Code agent installing this from the repo URL, do exactly this
 The installer is idempotent — running it twice changes nothing the second time.
 
 ## How it works
+
+<img src="assets/diagram.svg" alt="How Claude Orchestra routes a request: prompt → hook → router → orchestras → announcement" width="100%">
 
 1. **The constitution** (`orchestra-system.md`) defines your orchestras — rosters, conductors, triggers, gates.
 2. **The routing hook** injects a routing directive on every prompt.
