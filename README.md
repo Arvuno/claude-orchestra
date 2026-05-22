@@ -91,6 +91,38 @@ The installer is idempotent — running it twice changes nothing the second time
 The framework ships as a template. [`docs/CREATE-YOUR-ORCHESTRA.md`](docs/CREATE-YOUR-ORCHESTRA.md)
 walks you through mapping *your* tools into orchestras in about ten minutes.
 
+## Usage examples
+
+**Asking for a code review:**
+```
+/review @src/auth.ts
+```
+Claude Orchestra recognizes the `code-review` trigger, activates the *Code Review Orchestra*, and announces which conductor and players are handling it.
+
+**Filing a bug report:**
+```
+I found a bug in the login flow.
+```
+The system detects `bug-report` context, routes to the *Bug Triage Orchestra*, and queues the appropriate diagnostics agents.
+
+**Adding a new skill mid-session:**
+```
+Install the refactor-claude skill for me.
+```
+The intake skill intercepts the install, files it into the *Refactoring Orchestra*, and announces the new roster addition.
+
+**Routing without explicit triggers:**
+```
+Can you optimize the database queries in users.py?
+```
+The router scans orchestras by keywords (`optimize`, `database`, `performance`) and activates the *Performance Engineering Orchestra* — even though you didn't name it explicitly.
+
+**Switching orchestras manually:**
+```
+!orchestra activate debugging
+```
+Override automatic routing and direct Claude to a specific orchestra's tools and conductor.
+
 ## See a real setup
 
 Want a worked example? [`examples/my-20-orchestras.md`](examples/my-20-orchestras.md) is a real
