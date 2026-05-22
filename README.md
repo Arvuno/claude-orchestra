@@ -111,6 +111,14 @@ starting taxonomy, not a rulebook.
 
 **Do I need NEXUS?** No — it's optional. Delete the section if you don't want a meta-conductor.
 
+## Roadmap
+
+- [ ] **v1.1** — Visual orchestra dashboard for tracking active skills and agents
+- [ ] **v1.2** — Import/export orchestra configs for sharing setups
+- [ ] **v2.0** — Multi-user support with team orchestra configurations
+- [ ] **v2.1** — Orchestra analytics and usage insights
+- [ ] **v2.2** — Plugin system for third-party orchestra integrations
+
 ## Contributing
 
 PRs and new-orchestra ideas welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
