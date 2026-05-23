@@ -1,3 +1,20 @@
+
+
+## Quick Start
+
+Install with:
+```bash
+pip install claude-orchestra
+```
+
+Or clone and run:
+```bash
+git clone https://github.com/Momo2323-ui/claude-orchestra.git
+cd claude-orchestra
+python setup.py install
+```
+
+# claude-orchestra
 <div align="center">
 
 <img src="assets/banner.svg" alt="Claude Orchestra" width="100%">
