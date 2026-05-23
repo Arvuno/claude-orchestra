@@ -7,6 +7,8 @@
 
 ## Quick Start
 
+**Prerequisites:** Claude Code installed and `jq` available on your PATH.
+
 Install with:
 ```bash
 pip install claude-orchestra
