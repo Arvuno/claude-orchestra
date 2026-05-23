@@ -14,27 +14,7 @@ cd claude-orchestra
 python setup.py install
 ```
 
-# claude-orchestra
-<div align="center">
 
-<img src="assets/banner.svg" alt="Claude Orchestra" width="100%">
-
-# 🎼 Claude Orchestra
-
-**An operating system for your Claude Code skills, agents & MCPs.**
-
-![license](https://img.shields.io/badge/license-MIT-green)
-![claude code](https://img.shields.io/badge/Claude_Code-ready-f5b301)
-![PRs](https://img.shields.io/badge/PRs-welcome-blue)
-
-</div>
-
----
-
-You installed 50, 200, maybe 500+ skills, agents, and MCP servers. Now you have no idea what's
-active, what fires when, or whether half of them are wasted. **Claude Orchestra fixes that** — it
-organizes your entire toolkit into themed *orchestras*, each with a conductor, clear triggers, and
-automatic routing, so the right tools fire for the right task. Every time.
 
 ## The problem
 
