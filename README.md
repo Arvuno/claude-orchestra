@@ -4,6 +4,22 @@
 
 # 🎼 Claude Orchestra
 
+
+## Quick Start
+
+Install with:
+```bash
+pip install claude-orchestra
+```
+
+Or clone and run:
+```bash
+git clone https://github.com/Momo2323-ui/claude-orchestra.git
+cd claude-orchestra
+python setup.py install
+```
+
+
 **An operating system for your Claude Code skills, agents & MCPs.**
 
 ![license](https://img.shields.io/badge/license-MIT-green)
@@ -38,26 +54,6 @@ sequences its players, clear **triggers**, and quality **gates**. A routing hook
 request and activates the right orchestra automatically — and announces it, so you always know
 what's playing.
 
-## Quick start
-
-**The easy way** — paste this into Claude Code:
-
-```
-Install this for me: https://github.com/Momo2323-ui/claude-orchestra
-```
-
-Claude reads the repo, runs the installer, and sets everything up.
-
-**The manual way:**
-
-```bash
-git clone https://github.com/Momo2323-ui/claude-orchestra
-cd claude-orchestra
-./install.sh        # requires jq; backs up settings.json; idempotent
-```
-
-Then open a new Claude Code session and edit `~/.claude/rules/orchestra-system.md` to fill the
-rosters with *your* tools (takes ~10 min — see [docs/CREATE-YOUR-ORCHESTRA.md](docs/CREATE-YOUR-ORCHESTRA.md)).
 
 ## Install (for Claude Code agents)
 
