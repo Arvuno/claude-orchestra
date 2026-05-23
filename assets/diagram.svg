@@ -1,0 +1,79 @@
+<svg width="1200" height="660" viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16181d"/><stop offset="1" stop-color="#0b0c0e"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f5b301"/><stop offset="1" stop-color="#ffd45e"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#7a818c"/>
+    </marker>
+    <marker id="arrowg" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#f5b301"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="660" fill="url(#bg)"/>
+
+  <!-- title -->
+  <text x="60" y="62" font-size="29" font-weight="800" fill="#fff">How <tspan fill="url(#gold)">Claude Orchestra</tspan> routes every request</text>
+  <text x="60" y="94" font-size="16.5" fill="#8b919c">A hook reads each prompt → the router picks the orchestra → it announces what fired.</text>
+
+  <!-- LEFT flow: request → hook → router (all comfortably inside left half) -->
+  <rect x="55" y="285" width="140" height="62" rx="12" fill="#1f2229" stroke="#343a44"/>
+  <text x="125" y="315" font-size="15" font-weight="600" fill="#dfe3ea" text-anchor="middle">Your</text>
+  <text x="125" y="335" font-size="15" font-weight="600" fill="#dfe3ea" text-anchor="middle">request</text>
+
+  <rect x="240" y="285" width="150" height="62" rx="12" fill="#1f2229" stroke="#343a44"/>
+  <text x="315" y="311" font-size="14.5" font-weight="700" fill="#fff" text-anchor="middle">Routing hook</text>
+  <text x="315" y="332" font-size="12" fill="#8b919c" text-anchor="middle">fires every prompt</text>
+
+  <rect x="435" y="281" width="172" height="70" rx="14" fill="#2d2d2d" stroke="#f5b301" stroke-width="2"/>
+  <text x="521" y="309" font-size="15" font-weight="700" fill="#fff" text-anchor="middle">orchestra-router</text>
+  <text x="521" y="330" font-size="12" fill="#cbd0d8" text-anchor="middle">matches intent</text>
+
+  <!-- NEXUS above router -->
+  <rect x="435" y="150" width="172" height="58" rx="14" fill="url(#gold)"/>
+  <text x="521" y="176" font-size="15" font-weight="800" fill="#1a1a1a" text-anchor="middle">✦ NEXUS</text>
+  <text x="521" y="195" font-size="12" font-weight="600" fill="#1a1a1a" text-anchor="middle">meta-conductor</text>
+
+  <!-- orchestra cards: x 690..1010, 320 wide, 190px right margin — fully inside -->
+  <g>
+    <rect x="690" y="110" width="320" height="50" rx="11" fill="#1b1f26" stroke="#343a44"/>
+    <text x="710" y="141" font-size="16" fill="#dfe3ea">🔨 <tspan font-weight="700" fill="#fff">BUILD</tspan> · architect</text>
+    <rect x="690" y="172" width="320" height="50" rx="11" fill="#1b1f26" stroke="#343a44"/>
+    <text x="710" y="203" font-size="16" fill="#dfe3ea">🎨 <tspan font-weight="700" fill="#fff">DESIGN</tspan> · ux-architect</text>
+    <rect x="690" y="234" width="320" height="50" rx="11" fill="#1b1f26" stroke="#343a44"/>
+    <text x="710" y="265" font-size="16" fill="#dfe3ea">🔬 <tspan font-weight="700" fill="#fff">RESEARCH</tspan> · researcher</text>
+    <rect x="690" y="296" width="320" height="50" rx="11" fill="#1b1f26" stroke="#343a44"/>
+    <text x="710" y="327" font-size="16" fill="#dfe3ea">📣 <tspan font-weight="700" fill="#fff">MARKETING</tspan> · strategist</text>
+    <rect x="690" y="358" width="320" height="50" rx="11" fill="#1b1f26" stroke="#343a44" stroke-dasharray="4 4"/>
+    <text x="850" y="389" font-size="15" fill="#8b919c" text-anchor="middle">…16 more orchestras</text>
+  </g>
+
+  <!-- arrows: left flow -->
+  <g stroke="#7a818c" stroke-width="2" fill="none">
+    <line x1="195" y1="316" x2="236" y2="316" marker-end="url(#arrow)"/>
+    <line x1="390" y1="316" x2="431" y2="316" marker-end="url(#arrow)"/>
+  </g>
+  <!-- NEXUS dashed to router -->
+  <line x1="521" y1="208" x2="521" y2="277" stroke="#f5b301" stroke-width="2" stroke-dasharray="5 5" marker-end="url(#arrowg)"/>
+  <text x="535" y="250" font-size="12" fill="#f5b301" font-style="italic">sequences</text>
+  <!-- router → cards -->
+  <g stroke="#7a818c" stroke-width="2" fill="none">
+    <path d="M607 300 C645 280, 650 136, 686 136" marker-end="url(#arrow)"/>
+    <path d="M607 308 C645 295, 650 198, 686 198" marker-end="url(#arrow)"/>
+    <path d="M607 316 L686 260" marker-end="url(#arrow)"/>
+    <path d="M607 324 C645 338, 650 322, 686 322" marker-end="url(#arrow)"/>
+    <path d="M607 332 C645 360, 650 384, 686 384" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- announcement bar: x 55..1010 (190px right margin) -->
+  <rect x="55" y="520" width="955" height="72" rx="14" fill="#10241a" stroke="#1b9e4b" stroke-width="2"/>
+  <text x="80" y="553" font-size="18" font-weight="700" fill="#3ddc84">🎼 BUILD active</text>
+  <text x="80" y="579" font-size="14.5" fill="#aeb6c2" font-family="ui-monospace, Menlo, monospace">Conductor: architect · Using: code-reviewer, debugger</text>
+  <!-- short connector from BUILD card down to the bar -->
+  <path d="M760 408 C760 470, 520 470, 430 516" stroke="#1b9e4b" stroke-width="2" fill="none" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+  <text x="610" y="487" font-size="12" fill="#1b9e4b" font-style="italic" text-anchor="middle">conductor announces what fired</text>
+</svg>
