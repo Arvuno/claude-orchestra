@@ -115,6 +115,10 @@ starting taxonomy, not a rulebook.
 
 PRs and new-orchestra ideas welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
+## Contributing
+
+PRs and new-orchestra ideas welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Credits
 
 Built by [Moksh Mittra](https://github.com/Momo2323-ui). MIT licensed — use it freely. Every skill
