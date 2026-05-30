@@ -123,3 +123,5 @@ PRs and new-orchestra ideas welcome — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Built by [Moksh Mittra](https://github.com/Momo2323-ui). MIT licensed — use it freely. Every skill
 referenced in the example links to its original author.
+
+- Improved documentation clarity
